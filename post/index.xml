@@ -16,6 +16,15 @@
         <description>&lt;h3 id=&#34;welcome-to-my-world&#34;&gt;welcome to my world
 &lt;/h3&gt;</description>
         </item>
+        <item>
+        <title>MyFirstBlog</title>
+        <link>https://6vain9.github.io/p/myfirstblog/</link>
+        <pubDate>Mon, 17 Mar 2025 13:26:02 +0800</pubDate>
+        
+        <guid>https://6vain9.github.io/p/myfirstblog/</guid>
+        <description>&lt;p&gt;##测试一下自动部署&lt;/p&gt;
+</description>
+        </item>
         
     </channel>
 </rss>
