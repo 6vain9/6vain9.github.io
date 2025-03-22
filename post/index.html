@@ -309,7 +309,7 @@
                     <a href="/archives/#2025">
                         
                             <span class="year">2025</span>
-                            <span class="count">2</span>
+                            <span class="count">1</span>
                         
                     </a> 
                 </div>
@@ -374,7 +374,7 @@
 
         <div class="section-card">
             <div class="section-details">
-                <h3 class="section-count">2 个页面</h3>
+                <h3 class="section-count">1 个页面</h3>
                 <h1 class="section-term">Posts</h1>
                 
             </div>
@@ -382,17 +382,6 @@
     </header>
     
     <section class="article-list--compact">
-        
-            <article>
-    <a href="/p/myfirstblog/">
-        <div class="article-details">
-            <h2 class="article-title">MyFirstBlog</h2>
-            <footer class="article-time">
-                <time datetime='2025-03-17T13:26:02&#43;08:00'>2025-03-17</time>
-            </footer>
-        </div>
-    </a>
-</article>
         
             <article>
     <a href="/p/myfirstblog/">
@@ -456,5 +445,52 @@
     z-index: -1;
   }
 </style>
+
+
+<script>
+    
+    const cssPath = "https://6vain9.github.io/waifu/waifu.css"
+    const tipsJsonPath = "https://6vain9.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+        });
+    }
+</script>
+
     </body>
 </html>
